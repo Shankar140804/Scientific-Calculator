@@ -1,65 +1,67 @@
 // Function to append characters to the display
 function appendCharacter(character) {
-    document.getElementById("display").value += character;
+    const display = document.getElementById("display");
+    display.value += character;
 }
 
 // Function to clear the display
 function clearDisplay() {
-    document.getElementById("display").value = "";
+    const display = document.getElementById("display");
+    display.value = "";
 }
 
 // Function to delete the last character
 function deleteLast() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = display.slice(0, -1);
+    const display = document.getElementById("display");
+    display.value = display.value.slice(0, -1);
 }
 
 // Function to calculate the result
 function calculate() {
-    let display = document.getElementById("display").value;
+    const display = document.getElementById("display");
     try {
-        document.getElementById("display").value = eval(display);
+        display.value = eval(display.value);
     } catch (error) {
-        document.getElementById("display").value = "Error";
+        display.value = "Error";
     }
 }
 
 // Function to calculate square root
 function calculateSquareRoot() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = Math.sqrt(eval(display));
+    const display = document.getElementById("display");
+    display.value = Math.sqrt(parseFloat(display.value));
 }
 
 // Function to calculate square
 function calculateSquare() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = Math.pow(eval(display), 2);
+    const display = document.getElementById("display");
+    display.value = Math.pow(parseFloat(display.value), 2);
 }
 
-// Function to calculate power
+// Function to calculate power with user input
 function calculatePower() {
-    let display = document.getElementById("display").value;
-    let base = prompt("Enter the base:");
-    let exponent = prompt("Enter the exponent:");
-    document.getElementById("display").value = Math.pow(eval(base), eval(exponent));
+    const display = document.getElementById("display");
+    const base = parseFloat(display.value);
+    const exponent = parseFloat(prompt("Enter the exponent:"));
+    display.value = Math.pow(base, exponent);
 }
 
 // Function to calculate sine
 function calculateSin() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = Math.sin(eval(display) * Math.PI / 180);
+    const display = document.getElementById("display");
+    display.value = Math.sin(parseFloat(display.value) * Math.PI / 180);
 }
 
 // Function to calculate cosine
 function calculateCos() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = Math.cos(eval(display) * Math.PI / 180);
+    const display = document.getElementById("display");
+    display.value = Math.cos(parseFloat(display.value) * Math.PI / 180);
 }
 
 // Function to calculate tangent
 function calculateTan() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = Math.tan(eval(display) * Math.PI / 180);
+    const display = document.getElementById("display");
+    display.value = Math.tan(parseFloat(display.value) * Math.PI / 180);
 }
 
 // Function to handle keyboard input
